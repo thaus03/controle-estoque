@@ -4,13 +4,14 @@ body {
 }
 
 .principal{
-
-    padding: 42px 15px;
+    
+    padding: 42px 2px;
     text-align: center;
 }
 
+
 .footer {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -29,4 +30,9 @@ body {
 .footer-text2 {
     font-size: 12px
 
+}
+
+.table-1:last-child, .td-1:last-child {
+    border: none;
+    background-color: white;
 }

@@ -49,12 +49,12 @@ insert INTO Franquias(Franquia,Endereco) values ("São Conrado",NULL);
 select e.* from Estoque e inner join Produto P on e.Codigo = P.Codigo
 where P.Descricao like '%%';
 
-SELECT e.Codigo,P.Descricao as Produto,e.Responsavel,e.Pedido, DATE_FORMAT(e.Dt_faturamento, "%d-%m-%Y") as Dt_faturamento,F.Franquia, e.Comprante,P.Preco_cat, P.Preco_desc, P.Pontos from Estoque e 
+SELECT e.id, e.Codigo,P.Descricao as Produto,e.Responsavel,e.Pedido,e.Dt_faturamento, DATE_FORMAT(e.Dt_faturamento, "%d-%m-%Y") as Dt_faturamento2,F.id,F.Franquia, e.Comprante,P.Preco_cat as PCat, P.Preco_desc as PComp, P.Pontos from Estoque e 
 INNER JOIN (Produto P, Franquias F) ON (e.Codigo = P.Codigo AND e.Franquia = F.id)
 where P.Descricao like '%Bronze%';
 
 drop view vw_estoque;
-CREATE VIEW vw_estoque AS SELECT e.Codigo,P.Descricao as Produto,e.Responsavel,e.Pedido, DATE_FORMAT(e.Dt_faturamento, "%d-%m-%Y") as Dt_faturamento,F.Franquia, e.Comprante,P.Preco_cat as PCat, P.Preco_desc as PComp, P.Pontos from Estoque e 
+CREATE VIEW vw_estoque AS SELECT e.id as Estoque_id, e.Codigo,P.Descricao as Produto,e.Responsavel,e.Pedido,e.Dt_faturamento, DATE_FORMAT(e.Dt_faturamento, "%d-%m-%Y") as Dt_faturamento2,F.id as Franquia_id,F.Franquia, e.Comprante,P.Preco_cat as PCat, P.Preco_desc as PComp, P.Pontos from Estoque e 
 INNER JOIN (Produto P, Franquias F) ON (e.Codigo = P.Codigo AND e.Franquia = F.id);
 
 
